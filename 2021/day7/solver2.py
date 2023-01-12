@@ -1,5 +1,5 @@
 if __name__ == "__main__":
-    crabs = [int(c) for c in open("input.txt").read().strip().split(",")]
+    crabs = sorted([int(c) for c in open("input.txt").read().strip().split(",")])
     avg = int(sum(crabs)/len(crabs))
     res = float("inf")
     for i in range(avg, max(crabs)):
