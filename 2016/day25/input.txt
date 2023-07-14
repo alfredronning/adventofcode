@@ -1,0 +1,15 @@
+add a 2532 d    //  d = a + 2532;
+                //  a = d
+                //  while(true) {
+cpy d a         //      a = d;
+cpy a b         //      b = a;
+cp2 b a         //      a = b//2;
+md2 b           //      b = b % 2;
+out b           //
+jnz a -4       //       if a > 0: goto cpy a b (4)
+jnz 1 -6       //   }
+
+// 1010101010101010
+
+// a + 2523  må ha det binære mønsteret (10..)*k
+// må finne minste tall over 2523 som har dette mønsteret. diffen mellom det og 2523 er minste a
