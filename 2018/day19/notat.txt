@@ -1,0 +1,6 @@
+1. register 5 blir satt til 914 (0, 0, 1, 6, 1, 914)
+2. register 4 loopes sakte opp til 914. (1, 0, 2, 6, 1, 914) r1=1 settes direkte?
+2. register 4 loopes igjen til 914//2=457..
+3. nå loopes 4 til igjen til den er større en 914
+
+finnner sum av divisorer * konstant fra linje29+
