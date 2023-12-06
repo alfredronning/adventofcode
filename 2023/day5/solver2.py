@@ -1,10 +1,8 @@
 def convert_ranges(map, seed_range):
     queue = [seed_range]
     res = []
-    pointer = 0
-    while pointer < len(queue):
-        current_s, current_r = queue[pointer]
-        pointer += 1
+    while len(queue):
+        current_s, current_r = queue.pop()
         changed = False
         for dest, source, r in map:
             if current_s + current_r <= source or current_s >= source + r:
