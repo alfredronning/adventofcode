@@ -1,4 +1,4 @@
-from collections import defaultdict
+from collections import defaultdict, deque
 
 maze = open("input.txt").read().strip().split("\n")
 D = [(-1, 0), (0, 1), (1, 0), (0, -1)]
@@ -15,21 +15,14 @@ for i, row in enumerate(maze):
         elif tile == "#":
             walls.add((i, j))
 
-def sorted_add(open_set, scores, item):
-    for i, cmp_item in enumerate(open_set):
-        if scores[item] < scores[cmp_item]:
-            open_set.insert(i, item)
-            return
-    open_set.append(item)
-
 def best_path(walls, start, end):
-    open_set = [(start, 0), (start, 1)]
+    open_set = deque([(start, int(1))])
 
     scores = defaultdict(lambda: float("inf"))
     scores[(start, 1)] = 0
 
     while open_set:
-        pos, dir = open_set.pop(0)
+        pos, dir = open_set.popleft()
         for d in [1, -1]:
             turn = (pos, (dir+d)%4)
             if turn not in scores or scores[turn] > scores[(pos, dir)] + 1000:
